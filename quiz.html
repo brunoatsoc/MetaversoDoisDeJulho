@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz 2 de Julho</title>
+    <link rel="stylesheet" href="./assets/css/quiz.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <img class="logo-metaverso" src="./assets/images/logo/metaverso_logo.jpg" alt="Logo do projeto Metaverso">
+            </div>
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./museu.html">Museu</a></li>
+                <li><a class="current-page" href="./quiz.html">Quiz 2 de Julho</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+            <div class="social-icon">
+                <a href="https://www.instagram.com/metaverso2dejulho/"><img class="instagram-logo" src="./assets/images/logo/icons8-instagram-50.png" alt="Logo do Instagram"></a>
+                <a href="https://www.instagram.com/metaverso2dejulho/"><p>Instagram</p></a>
+            </div>
+        </nav>
+    </header>
+
+    <h1>Quiz - Independência da Bahia</h1>
+
+    <div class="quiz-container" id="quiz">
+        <div class="question">
+            <h3>1. Em que ano ocorreu a Independência da Bahia?</h3>
+            <div class="options">
+                <label><input type="radio" name="q1" value="0" /> 1808</label>
+                <label><input type="radio" name="q1" value="1" /> 1823</label>
+                <label><input type="radio" name="q1" value="0" /> 1889</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>2. Qual é o nome do evento que celebra a independência da Bahia?</h3>
+            <div class="options">
+                <label><input type="radio" name="q2" value="0" /> Festa do Divino</label>
+                <label><input type="radio" name="q2" value="1" /> 2 de Julho</label>
+                <label><input type="radio" name="q2" value="0" /> Tiradentes</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>3. Quem é considerada uma heroína da independência da Bahia?</h3>
+            <div class="options">
+                <label><input type="radio" name="q3" value="0" /> Princesa Isabel</label>
+                <label><input type="radio" name="q3" value="1" /> Maria Quitéria</label>
+                <label><input type="radio" name="q3" value="0" /> Anita Garibaldi</label>
+            </div>
+        </div>
+
+        <button onclick="finalizarQuiz()">Finalizar Quiz</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function finalizarQuiz() {
+            const total = 3;
+            let score = 0;
+            let feedback = "";
+
+            for (let i = 1; i <= total; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const questionDiv = document.querySelector(`.question:nth-of-type(${i})`);
+                const correctLabel = questionDiv.querySelector(`input[value="1"]`).parentElement;
+
+                if (selected) {
+                    const userAnswer = selected.value;
+                    if (userAnswer === "1") {
+                        score++;
+                        correctLabel.style.color = "green";
+                        feedback += `<p style="color:green;">✔ Pergunta ${i} correta!</p>`;
+                    } else {
+                        selected.parentElement.style.color = "red";
+                        correctLabel.style.color = "green";
+                        feedback += `<p style="color:red;">✘ Pergunta ${i} incorreta.</p>`;
+                    }
+                } else {
+                    feedback += `<p style="color:red;">✘ Pergunta ${i} não respondida.</p>`;
+                    correctLabel.style.color = "green";
+                }
+            }
+
+            const result = document.getElementById("result");
+            result.innerHTML = `
+                <p><strong>Você acertou ${score} de ${total} perguntas.</strong></p>
+                ${feedback}
+            `;
+        }
+    </script>
+
+</body>
+
+</html>
