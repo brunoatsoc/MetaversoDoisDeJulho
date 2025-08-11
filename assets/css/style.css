@@ -36,23 +36,25 @@ nav ul li {
     margin-bottom: 7px;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: border 0.15s, paddig 0.15s;
-}
-
 .current-page {
     border: 1px solid #fff;
     padding: 10px;
     border-radius: 10px;
 }
 
-nav ul li a:hover {
-    border: 1px solid #fff;
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid transparent;
     padding: 10px;
     border-radius: 10px;
+    transition: border-color 0.15s ease, padding 0.15s ease;
+}
+
+nav ul li a:hover {
+    border-color: #fff;
+    padding: 12px;
 }
 
 .logo-metaverso {
@@ -96,11 +98,14 @@ nav ul li a:hover {
     height: 100px;
     object-fit: cover;
     border-radius: 8px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease, margin-left 0.3s ease, transform 0.3s ease;
 }
 
 .mosaic img:hover {
-    border: 2px solid #8fc7ff;
+    border-color: #44a1ff;
     margin-left: 2px;
+    transform: scale(1.02);
 }
 
 .instagram-logo {
@@ -120,7 +125,7 @@ nav ul li a:hover {
 
 .collaborators {
     padding: 2rem;
-    background-color: #eee;
+    background-color: #ffffff;
     text-align: center;
 }
 
@@ -154,6 +159,42 @@ nav ul li a:hover {
     margin-top: 0.5rem;
     font-weight: bold;
     text-align: center;
+}
+
+.collaborator a {
+    color: #004080;
+}
+
+.participants h2 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #004080;
+}
+
+.participants-list {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.participants-list a {
+    display: block;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+}
+
+.participants-list img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
 }
 
 @media (max-width: 768px) {

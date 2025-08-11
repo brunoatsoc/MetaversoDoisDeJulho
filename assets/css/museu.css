@@ -31,23 +31,25 @@ nav ul li {
     margin-bottom: 7px;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: border 0.15s, paddig 0.15s;
-}
-
 .current-page {
     border: 1px solid #fff;
     padding: 10px;
     border-radius: 10px;
 }
 
-nav ul li a:hover {
-    border: 1px solid #fff;
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid transparent;
     padding: 10px;
     border-radius: 10px;
+    transition: border-color 0.15s ease, padding 0.15s ease;
+}
+
+nav ul li a:hover {
+    border-color: #fff;
+    padding: 12px;
 }
 
 .logo-metaverso {
@@ -121,7 +123,6 @@ h1 {
     height: 450px;
     object-fit: contain;
     background-color: #f4f4f4;
-    /*object-fit: cover;*/
 }
 
 .caption {

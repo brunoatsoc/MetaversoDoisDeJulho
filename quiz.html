@@ -18,11 +18,11 @@
                 <li><a href="./index.html">Inicio</a></li>
                 <li><a href="./museu.html">Museu</a></li>
                 <li><a class="current-page" href="./quiz.html">Quiz 2 de Julho</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="./contact.html">Contato</a></li>
             </ul>
             <div class="social-icon">
-                <a href="https://www.instagram.com/metaverso2dejulho/"><img class="instagram-logo" src="./assets/images/logo/icons8-instagram-50.png" alt="Logo do Instagram"></a>
-                <a href="https://www.instagram.com/metaverso2dejulho/"><p>Instagram</p></a>
+                <a href="https://www.instagram.com/metaverso2dejulho/" target="_blank"><img class="instagram-logo" src="./assets/images/logo/icons8-instagram-50.png" alt="Logo do Instagram"></a>
+                <a href="https://www.instagram.com/metaverso2dejulho/" target="_blank"><p>Instagram</p></a>
             </div>
         </nav>
     </header>
@@ -40,20 +40,38 @@
         </div>
 
         <div class="question">
-            <h3>2. Qual é o nome do evento que celebra a independência da Bahia?</h3>
+            <h3>2. Durante a guerra, a Bahia chegou a ter outra capital além de Salvador. Qual era?</h3>
             <div class="options">
-                <label><input type="radio" name="q2" value="0" /> Festa do Divino</label>
-                <label><input type="radio" name="q2" value="1" /> 2 de Julho</label>
-                <label><input type="radio" name="q2" value="0" /> Tiradentes</label>
+                <label><input type="radio" name="q2" value="0" /> Castro Alves</label>
+                <label><input type="radio" name="q2" value="0" /> Feira de Santana</label>
+                <label><input type="radio" name="q2" value="1" /> Cachoeira</label>
             </div>
         </div>
 
         <div class="question">
-            <h3>3. Quem é considerada uma heroína da independência da Bahia?</h3>
+            <h3>3. Qual é o principal símbolo da Independência da Bahia?</h3>
             <div class="options">
-                <label><input type="radio" name="q3" value="0" /> Princesa Isabel</label>
-                <label><input type="radio" name="q3" value="1" /> Maria Quitéria</label>
-                <label><input type="radio" name="q3" value="0" /> Anita Garibaldi</label>
+                <label><input type="radio" name="q3" value="1" /> Caboclo e Cabocla</label>
+                <label><input type="radio" name="q3" value="0" /> Um barco</label>
+                <label><input type="radio" name="q3" value="0" /> Uma bandeira</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>4. Qual figura é considerada o primeiro mártir do levante baiano?</h3>
+            <div class="options">
+                <label><input type="radio" name="q4" value="1" /> Joana Angélica</label>
+                <label><input type="radio" name="q4" value="0" /> Maria Quitéria</label>
+                <label><input type="radio" name="q4" value="0" /> Corneteiro Lopes</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>5. A Guerra da Independência na Bahia não se restringiu a Salvador. Qual região teve um papel estratégico e foi palco de batalhas decisivas?</h3>
+            <div class="options">
+                <label><input type="radio" name="q5" value="0" /> O Vale do São Francisco</label>
+                <label><input type="radio" name="q5" value="0" /> O Litoral Sul</label>
+                <label><input type="radio" name="q5" value="1" /> O Recôncavo Baiano</label>
             </div>
         </div>
 
@@ -62,42 +80,7 @@
         <div id="result"></div>
     </div>
 
-    <script>
-        function finalizarQuiz() {
-            const total = 3;
-            let score = 0;
-            let feedback = "";
-
-            for (let i = 1; i <= total; i++) {
-                const selected = document.querySelector(`input[name="q${i}"]:checked`);
-                const questionDiv = document.querySelector(`.question:nth-of-type(${i})`);
-                const correctLabel = questionDiv.querySelector(`input[value="1"]`).parentElement;
-
-                if (selected) {
-                    const userAnswer = selected.value;
-                    if (userAnswer === "1") {
-                        score++;
-                        correctLabel.style.color = "green";
-                        feedback += `<p style="color:green;">✔ Pergunta ${i} correta!</p>`;
-                    } else {
-                        selected.parentElement.style.color = "red";
-                        correctLabel.style.color = "green";
-                        feedback += `<p style="color:red;">✘ Pergunta ${i} incorreta.</p>`;
-                    }
-                } else {
-                    feedback += `<p style="color:red;">✘ Pergunta ${i} não respondida.</p>`;
-                    correctLabel.style.color = "green";
-                }
-            }
-
-            const result = document.getElementById("result");
-            result.innerHTML = `
-                <p><strong>Você acertou ${score} de ${total} perguntas.</strong></p>
-                ${feedback}
-            `;
-        }
-    </script>
+    <script src="./assets/js/quiz.js"></script>
 
 </body>
-
 </html>
